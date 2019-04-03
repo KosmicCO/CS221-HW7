@@ -2,19 +2,19 @@
 #include <vector>
 
 HForest::HForest(){
-    trees = new std::vector<HTree::tree_ptr_t>();
+    trees_ = new std::vector<HTree::tree_ptr_t>();
 }
 
 HForest::~HForest(){
-    delete trees;
+    delete trees_;
 }
 
 int HForest::size() const {
-    return trees->size();       // wrapper for vector
+    return trees_->size();       // wrapper for vector
 }
 
 void HForest::add_tree(HTree::tree_ptr_t tree){
-    trees->push_back(tree);     // wrapper for vector
+    trees_->push_back(tree);     // wrapper for vector
 }
 
 bool compare_trees(HTree::tree_ptr_t t1, HTree::tree_ptr_t t2){
@@ -22,8 +22,8 @@ bool compare_trees(HTree::tree_ptr_t t1, HTree::tree_ptr_t t2){
 }
 
 HTree::tree_ptr_t HForest::pop_tree(){
-    std::make_heap(trees->begin(), trees->end(), compare_trees);    // makes the vector into a heap
-    HTree::tree_ptr_t top = trees->back();                          // gets greatest
-    trees->pop_back();
+    std::make_heap(trees_->begin(), trees_->end(), compare_trees);    // makes the vector into a heap
+    HTree::tree_ptr_t top = trees_->back();                          // gets greatest
+    trees_->pop_back();
     return top;
 }

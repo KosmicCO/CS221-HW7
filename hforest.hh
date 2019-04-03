@@ -8,7 +8,7 @@
 
 class HForest {
   private:
-    std::vector<HTree::tree_ptr_t> * trees; // stores trees
+    std::vector<HTree::tree_ptr_t> * trees_; // stores trees
 
   public:
     HForest();
